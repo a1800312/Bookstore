@@ -1,5 +1,8 @@
 package fi.hh.palvelinohjelmointi.Bookstore.domain;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Book {
 
 	private String title;
