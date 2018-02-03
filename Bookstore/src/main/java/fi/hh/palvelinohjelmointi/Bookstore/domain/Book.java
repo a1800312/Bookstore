@@ -1,6 +1,7 @@
 package fi.hh.palvelinohjelmointi.Bookstore.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Entity
 public class Book {
@@ -8,6 +9,7 @@ public class Book {
 	private String title;
 	private String author;
 	private String year;
+	@Id
 	private String isbn;
 	private String price;
 	
