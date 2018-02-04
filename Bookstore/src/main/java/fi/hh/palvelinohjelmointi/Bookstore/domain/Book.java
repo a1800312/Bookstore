@@ -14,7 +14,11 @@ public class Book {
 	private String price;
 	
 	public Book() {
-		
+		this.title = null;
+		this.author = null;
+		this.year = null;
+		this.isbn = null;
+		this.price = null;
 	}
 	
 	public Book(String title, String author, String year, String isbn, String price) {
