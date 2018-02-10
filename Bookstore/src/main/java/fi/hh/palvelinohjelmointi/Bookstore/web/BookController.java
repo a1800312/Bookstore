@@ -13,6 +13,8 @@ import fi.hh.palvelinohjelmointi.Bookstore.domain.CategoryRepository;
 @Controller
 public class BookController {
 	
+	//testi
+	
 	@Autowired
 	private BookRepository repository;
 	
