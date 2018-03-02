@@ -1,10 +1,13 @@
 package fi.hh.palvelinohjelmointi.Bookstore.web;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import fi.hh.palvelinohjelmointi.Bookstore.domain.Book;
 import fi.hh.palvelinohjelmointi.Bookstore.domain.BookRepository;
@@ -12,8 +15,6 @@ import fi.hh.palvelinohjelmointi.Bookstore.domain.CategoryRepository;
 
 @Controller
 public class BookController {
-	
-	//testi
 	
 	@Autowired
 	private BookRepository repository;
@@ -25,6 +26,16 @@ public class BookController {
 	public String indexRequest(){
 		// do something
 		return "/index";
+	}
+	
+	@RequestMapping(value="/books", method = RequestMethod.GET)
+	public @ResponseBody List<Book> bookListRest() {
+		return (List<Book>) repository.findAll();
+	}
+	
+	@RequestMapping(value="/book/{isbn}", method = RequestMethod.GET)
+	public @ResponseBody Book findBookRest(@PathVariable("isbn") String bookIsbn) {
+		return repository.findOne(bookIsbn);
 	}
 	
 	@RequestMapping(value="/booklist", method=RequestMethod.GET)
