@@ -11,6 +11,8 @@ import fi.hh.palvelinohjelmointi.Bookstore.domain.Book;
 import fi.hh.palvelinohjelmointi.Bookstore.domain.BookRepository;
 import fi.hh.palvelinohjelmointi.Bookstore.domain.Category;
 import fi.hh.palvelinohjelmointi.Bookstore.domain.CategoryRepository;
+import fi.hh.palvelinohjelmointi.Bookstore.domain.User;
+import fi.hh.palvelinohjelmointi.Bookstore.domain.UserRepository;
 
 @SpringBootApplication
 public class BookstoreApplication {
@@ -22,7 +24,7 @@ public class BookstoreApplication {
 	}
 	
 	@Bean
-	public CommandLineRunner studentDemo(BookRepository repository, CategoryRepository categoryRepository) {
+	public CommandLineRunner studentDemo(BookRepository repository, CategoryRepository categoryRepository, UserRepository urepository) {
 		return (args) -> {
 	
 			log.info("save a couple of books and categories");
@@ -34,6 +36,11 @@ public class BookstoreApplication {
 			categoryRepository.save(new Category("Lastenkirjat"));
 			categoryRepository.save(new Category("Rakkaus"));
 			//repository.save(new Book("Kirjan nimi esimerkki", "Kirjoittajan nimi", "2002", "ISBN1b5asd123", "5.99"));
+			User user1 = new User("user", "$2a$06$zmBwssLAoceLGcleYf7oGedMAfAabHmWbwpRTtvueWNsQA4QinudW", "USER", "user@palvelinohjelmointi.fi");
+			urepository.save(user1);
+			User user2 = new User("admin", "$2a$06$QP8rFStipiTPSRNF38e1iuVrLbSINgUkEkU7ZZbQV6lwxd0CdRgAS", "ADMIN", "admin@palvelinohjelmointi.fi");
+			urepository.save(user2);
+			
 			log.info("fetch all books");
 			for (Book book : repository.findAll()) {
 				log.info(book.toString());

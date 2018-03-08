@@ -98,5 +98,4 @@ public class Book {
 				+ ", category=" + category + "]";
 	}
 	
-	
 }
