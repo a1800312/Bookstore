@@ -28,6 +28,11 @@ public class BookController {
 		return "/index";
 	}
 	
+    @RequestMapping(value="/login")
+    public String login() {	
+        return "/login";
+    }
+	
 	@RequestMapping(value="/books", method = RequestMethod.GET)
 	public @ResponseBody List<Book> bookListRest() {
 		return (List<Book>) repository.findAll();
