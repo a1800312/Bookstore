@@ -35,8 +35,8 @@ public class BookstoreApplication {
 			categoryRepository.save(new Category("Scifi"));
 			categoryRepository.save(new Category("Lastenkirjat"));
 			categoryRepository.save(new Category("Rakkaus"));
-			repository.save(new Book("Hessun Romaani", "Hessu Hoopo", new Category("Romaani"), "2002", "ISBN1b5asd123", "5.99"));
-			repository.save(new Book("Todella kiva kirja", "Mikko Esimerkki", new Category("Mixi"), "2000", "123-123-1234", "24.99"));
+			//repository.save(new Book("Hessun Romaani", "Hessu Hoopo", new Category("Romaani"), "2002", "ISBN1b5asd123", "5.99"));
+			//repository.save(new Book("Todella kiva kirja", "Mikko Esimerkki", new Category("Mixi"), "2000", "123-123-1234", "24.99"));
 			User user1 = new User("user", "$2a$06$zmBwssLAoceLGcleYf7oGedMAfAabHmWbwpRTtvueWNsQA4QinudW", "USER", "user@palvelinohjelmointi.fi");
 			urepository.save(user1);
 			User user2 = new User("admin", "$2a$06$QP8rFStipiTPSRNF38e1iuVrLbSINgUkEkU7ZZbQV6lwxd0CdRgAS", "ADMIN", "admin@palvelinohjelmointi.fi");
